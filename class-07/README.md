@@ -6,6 +6,23 @@
 
 ## Lecture Outline
 
+### Linked List Methods Review
+
+### Iteration Warm-Up
+
+### Zoo UML
+
+### Interfaces vs Inheritance
+
+- Review inheritance
+    - no multiple inheritance
+- Review Polymorphism
+- Implementing an interface
+    - naming conventions
+    - properties
+    - methods
+
+
 ### Interfaces
 
 Interfaces are traditionally used on more than one class, or better yet, have the ability to be used on more than one class. Interfaces
@@ -18,11 +35,3 @@ Why do you need interfaces?
 - Sometimes you need to group your objects together based on the **things they can do** rather than the classes they inherit from. That is where interfaces come in, Interfaces let us work with any class that can do the job. Any class that implements an interface must promise to 'fulfill it's obligations' or the compiler will get upset. 
 - Think of interfaces like 'actions' or 'protocols' that can be implemented on other classes
 
-### Interfaces vs Inheritance
-- Review inheritance
-    - no multiple inheritance
-- Review Polymorphism
-- Implementing an interface
-    - naming conventions
-    - properties
-    - methods
