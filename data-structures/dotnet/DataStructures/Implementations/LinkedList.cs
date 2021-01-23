@@ -4,32 +4,42 @@ using System.Text;
 
 namespace DataStructures
 {
-  public class LinkedList
+  public class LinkedList<T>
   {
-    public Node Head { get; set; }
+
+    public Node<T> Head { get; set; }
+
 
     /// <summary>
-    /// Plain, Empty Linked List
-    /// Usage: LinkedLIst myLIst = new LinkedList();
+    /// Plain, Empty Linked LList
+    /// Head will be null
+    /// Usage: LinkedList myList = new LinkedList();
     /// </summary>
     public LinkedList() { }
 
     /// <summary>
-    /// Creates a linked list with a node, assigning Head
-    /// Usage: LinkedList myList = new LinkedList(4);
+    /// Linked list constructor that creats a head node
+    /// Usage: LinkedList myList = new LinkedList(5);
     /// </summary>
     /// <param name="value"></param>
-    public LinkedList(int value)
+    public LinkedList(T value)
     {
-      Node node = new Node(value);
+      Node<T> node = new Node<T>(value);
+      Head = node;
+
+    }
+
+    public void Insert(T value)
+    {
+      Node<T> node = new Node<T>(value);
+      node.Next = Head;
       Head = node;
     }
 
-    // METHODS
-
     public void Print()
     {
-      Node current = Head;
+      Node<T> current = Head;
+
       while (current != null)
       {
         Console.Write($"[{current.Value}] => ");
@@ -39,8 +49,9 @@ namespace DataStructures
       Console.WriteLine("NULL");
     }
 
-    public void PrintR(Node node)
+    public void PrintR(Node<T> node)
     {
+
       if (node == null)
       {
         Console.WriteLine("NULL");
@@ -50,21 +61,6 @@ namespace DataStructures
       Console.Write($"[{node.Value}] => ");
 
       PrintR(node.Next);
-
-    }
-
-    public void Insert(int value)
-    {
-      // If we have a head ... do this
-      // If not, make the node, and make it the head.
-      Node node = new Node(value);
-      node.Next = Head; // might be unnecessary if we don't have a head
-      Head = node;
-    }
-
-    public void Append(int value)
-    {
-      // Add a node to the end of the list
     }
 
   }
