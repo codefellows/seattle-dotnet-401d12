@@ -107,6 +107,10 @@ From the Developer Powershell Window, run these commands. Once verified, you can
 - [ ] Finally, add the actual connection string to the `appsettings.json` file
   - Change **DBNAMEHERE** to the name of the database for your project
   ```json
+<<<<<<< HEAD
+=======
+  
+>>>>>>> e0f9d92238a9b36c035a20e9933f2e8f2acba6fc
   "ConnectionStrings": {
     "DefaultConnection": "Server=(localdb)\\MSSQLLocalDB;Database=DBNAMEHERE;Trusted_Connection=True;MultipleActiveResultSets=true"
   }
