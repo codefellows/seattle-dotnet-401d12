@@ -85,7 +85,7 @@ From the Developer Powershell Window, run these commands. Once verified, you can
   ```
  - [ ] Add a constructor to receive our configuration (a bit of magic here)
    ```csharp
-   public Startup(Iconfiguration configuration)
+   public Startup(IConfiguration configuration)
    {
      Configuration = configuration;
    }
@@ -107,10 +107,8 @@ From the Developer Powershell Window, run these commands. Once verified, you can
 - [ ] Finally, add the actual connection string to the `appsettings.json` file
   - Change **DBNAMEHERE** to the name of the database for your project
   ```json
-  {
-    "ConnectionStrings": {
-      "DefaultConnection": "Server=(localdb)\\MSSQLLocalDB;Database=DBNAMEHERE;Trusted_Connection=True;MultipleActiveResultSets=true"
-    }
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=(localdb)\\MSSQLLocalDB;Database=DBNAMEHERE;Trusted_Connection=True;MultipleActiveResultSets=true"
   }
   ```
 - [ ] Run the `Update-Database` command again ...
