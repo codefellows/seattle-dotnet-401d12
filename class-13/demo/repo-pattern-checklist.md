@@ -15,6 +15,8 @@ Our goal is to change this setup to:
 - `StudentRepository` will be the concrete class that implements `IStudent`
 - Inject `DbContext` into this repository, so we are "live"
 
+Note that this demo is only for 1 Model/Controller. You'll need to do the work for all them ahead of future labs
+
 ## Refactor our Controllers using Dependency Injection and a Repository
 
 **Complete this entire process once, for one of your models** with a full explanation as you go, like a typical demo. Then, lead the students in a phased practice session:
