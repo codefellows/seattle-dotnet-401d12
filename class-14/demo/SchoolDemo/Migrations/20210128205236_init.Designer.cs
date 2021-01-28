@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SchoolDemo.Data;
 
-namespace ef_demo.Migrations
+namespace SchoolDemo.Migrations
 {
     [DbContext(typeof(SchoolDbContext))]
-    [Migration("20210128050506_add-enrollment-relationship-again")]
-    partial class addenrollmentrelationshipagain
+    [Migration("20210128205236_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -146,6 +146,10 @@ namespace ef_demo.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CourseId");
+
+                    b.HasIndex("StudentId");
+
                     b.ToTable("Transcripts");
                 });
 
@@ -159,6 +163,21 @@ namespace ef_demo.Migrations
 
                     b.HasOne("SchoolDemo.Models.Student", "Student")
                         .WithMany("Enrollments")
+                        .HasForeignKey("StudentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("SchoolDemo.Models.Transcript", b =>
+                {
+                    b.HasOne("SchoolDemo.Models.Course", "Course")
+                        .WithMany()
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SchoolDemo.Models.Student", "Student")
+                        .WithMany("Transcripts")
                         .HasForeignKey("StudentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

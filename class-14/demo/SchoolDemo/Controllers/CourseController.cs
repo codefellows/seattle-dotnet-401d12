@@ -84,7 +84,7 @@ namespace SchoolDemo.Controllers
     }
 
     // DELETE: api/Courses/5/7
-    [HttpPost]
+    [HttpDelete]
     [Route("{courseId}/{studentId}")]
     public async Task<IActionResult> DeleteStudentFromCourse(int courseId, int studentId)
     {

@@ -26,20 +26,38 @@ namespace SchoolDemo.Services
 
     public async Task<Student> GetOne(int id)
     {
-      // look in the db on the student table, where the id is equal to the id that was brought in as an argument
+
+      // Better With LINQ!
+      return await _context.Students
+               .Include(s => s.Enrollments)
+               .ThenInclude(e => e.Course)
+               .Include(s => s.Transcripts)
+               .ThenInclude(t => t.Course)
+               .FirstOrDefaultAsync(s => s.Id == id);
+
+
+      // Manually Tying it Together ...
+      /*
       Student student = await _context.Students.FindAsync(id);
       var enrollments = await _context.Enrollments.Where(x => x.StudentId == id)
                                              .Include(x => x.Course)
                                              .ToListAsync();
-      student.Enrollments = enrollments;.a
+      student.Enrollments = enrollments;
 
       return student;
+      */
+
     }
 
     public async Task<List<Student>> GetAll()
     {
-      var students = await _context.Students.ToListAsync();
-      return students;
+
+      return await _context.Students
+                     .Include(s => s.Enrollments)
+                     .ThenInclude(e => e.Course)
+                     .Include(s => s.Transcripts)
+                     .ThenInclude(t => t.Course)
+                     .ToListAsync();
     }
 
     public async Task<Student> Update(int id, Student student)
