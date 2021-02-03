@@ -4,10 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace SchoolDemo.Data
 {
-  public class SchoolDbContext : DbContext
+  public class SchoolDbContext : IdentityDbContext<ApplicationUser>
   {
     public SchoolDbContext(DbContextOptions options) : base(options)
     {
@@ -15,8 +16,8 @@ namespace SchoolDemo.Data
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-      // This calls the base method, but does nothing
-      // base.OnModelCreating(modelBuilder);
+      // We need Identity to do it's pre-loads/stuff/work/etc before we do.
+      base.OnModelCreating(modelBuilder);
 
       modelBuilder.Entity<Technology>().HasData(
         new Technology { Id = 1, Name = ".NET " },

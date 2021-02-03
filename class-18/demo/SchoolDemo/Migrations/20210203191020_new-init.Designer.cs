@@ -10,8 +10,8 @@ using SchoolDemo.Data;
 namespace SchoolDemo.Migrations
 {
     [DbContext(typeof(SchoolDbContext))]
-    [Migration("20210128205236_init")]
-    partial class init
+    [Migration("20210203191020_new-init")]
+    partial class newinit
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -35,10 +35,12 @@ namespace SchoolDemo.Migrations
                     b.Property<float>("Price")
                         .HasColumnType("real");
 
-                    b.Property<int>("Technology")
+                    b.Property<int>("TechnologyId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("TechnologyId");
 
                     b.ToTable("Courses");
                 });
@@ -56,22 +58,6 @@ namespace SchoolDemo.Migrations
                     b.HasIndex("StudentId");
 
                     b.ToTable("Enrollments");
-                });
-
-            modelBuilder.Entity("SchoolDemo.Models.Grade", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Grades");
                 });
 
             modelBuilder.Entity("SchoolDemo.Models.Student", b =>
@@ -151,6 +137,15 @@ namespace SchoolDemo.Migrations
                     b.HasIndex("StudentId");
 
                     b.ToTable("Transcripts");
+                });
+
+            modelBuilder.Entity("SchoolDemo.Models.Course", b =>
+                {
+                    b.HasOne("SchoolDemo.Models.Technology", "Technology")
+                        .WithMany()
+                        .HasForeignKey("TechnologyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("SchoolDemo.Models.Enrollment", b =>

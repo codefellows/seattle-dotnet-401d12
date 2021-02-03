@@ -13,6 +13,8 @@ using System.Threading.Tasks;
 using SchoolDemo.Models.Interfaces;
 using SchoolDemo.Services;
 using Microsoft.OpenApi.Models;
+using SchoolDemo.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace SchoolDemo
 {
@@ -38,6 +40,12 @@ namespace SchoolDemo
         options.UseSqlServer(connectionString);
       });
 
+      services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+     {
+       options.User.RequireUniqueEmail = true;
+     })
+        .AddEntityFrameworkStores<SchoolDbContext>();
+
       // Register my Dependency Injection services
       // This mapps the Dependency (IStudent) to the correct Service (StudentRepository)
       // "Whenever I see IStudent, use StudentRepository
@@ -45,6 +53,7 @@ namespace SchoolDemo
       services.AddTransient<ICourse, CourseRepository>();
       services.AddTransient<IStudent, StudentRepository>();
       services.AddTransient<ITechnology, TechnologyRepository>();
+      services.AddTransient<IUserService, IdentityUserService>();
 
       // Bring in our controllers
       services.AddMvc();
@@ -81,11 +90,13 @@ namespace SchoolDemo
         options.RouteTemplate = "/api/{documentName}/swagger.json";
       });
 
-      app.UseSwaggerUI(options => {
+      app.UseSwaggerUI(options =>
+      {
         options.SwaggerEndpoint("/api/v1/swagger.json", "Student Demo");
+        options.RoutePrefix = "";
       });
 
-       app.UseEndpoints(endpoints =>
+      app.UseEndpoints(endpoints =>
        {
          endpoints.MapControllers();
        });
