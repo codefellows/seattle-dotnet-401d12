@@ -13,8 +13,10 @@
 
 ## Logistics
 
-- [Requirements](./requirements.md)
-- [Schedule](./schedule.md)
+- [Applicaation Requirements](./requirements.md)
+- [Requirement Docs](../software-requirements.md)
+- [User Stories](./requirements.md)
+- [Development Schedule](./schedule.md)
 
 ## Ideas
 
