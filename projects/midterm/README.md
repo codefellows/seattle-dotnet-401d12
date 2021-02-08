@@ -13,9 +13,9 @@
 
 ## Logistics
 
-- [Applicaation Requirements](./requirements.md)
+- [Application Requirements](./requirements.md)
 - [Requirement Docs](../software-requirements.md)
-- [User Stories](./requirements.md)
+- [User Stories](../user-stories.md)
 - [Development Schedule](./schedule.md)
 
 ## Ideas
