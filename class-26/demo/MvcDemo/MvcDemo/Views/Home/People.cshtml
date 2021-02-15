@@ -1,0 +1,10 @@
+@model IEnumerable<MvcDemo.Models.Person>
+
+<ul>
+  @foreach (var person in Model)
+  {
+<li>
+  <a asp-controller="Home" asp-action="Person" asp-route-fullName=@person.name asp-route-jobTitle=@person.job>@person.name</a>
+</li>
+}
+</ul>
