@@ -23,5 +23,15 @@ In a web application, the same process must still exist, but the mechanism chang
 
 ## Today's Outline
 
-<!-- To Be Completed By Instructor -->
+1. Warm Up
+1. Sorting Review
+1. Code/Process Review
 
+BREAK
+
+1. ADO
+1. Cookies
+
+BREAK
+
+1. Auth
