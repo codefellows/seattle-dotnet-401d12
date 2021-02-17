@@ -24,4 +24,5 @@ Performing CRUD Operations on a set of database tables requires us to build Form
 1. Client Interviews
 1. MVC Layout and Design
 1. MVC Forms
+1. Error Checking 
 
