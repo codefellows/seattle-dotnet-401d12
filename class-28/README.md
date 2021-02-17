@@ -19,5 +19,9 @@ Performing CRUD Operations on a set of database tables requires us to build Form
 
 ## Today's Outline
 
-<!-- To Be Completed By Instructor -->
+1. Warm-Up
+1. Application Review
+1. Client Interviews
+1. MVC Layout and Design
+1. MVC Forms
 
