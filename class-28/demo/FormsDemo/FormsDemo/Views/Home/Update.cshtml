@@ -1,0 +1,7 @@
+@model FormsDemo.Models.Dog
+
+<form asp-controller="Home" asp-action="Update" method="post">
+  <partial name="_DogForm" />
+</form>
+
+<div asp-validation-summary="All"></div>

@@ -1,0 +1,21 @@
+@model FormsDemo.Models.Dog
+
+  <label>
+    <span>Name</span>
+    <input asp-for="@Model.Name" />
+  </label>
+
+  <label>
+    <span>Breed</span>
+    <input asp-for="@Model.Breed" />
+  </label>
+
+
+  <label>
+    <span>Owner</span>
+    <input asp-for="@Model.Owner" />
+  </label>
+
+
+  <button type="submit">Save The Dog</button>
+
