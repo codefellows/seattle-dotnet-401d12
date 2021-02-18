@@ -1,0 +1,33 @@
+@model UploadingDemo.Models.Document
+
+<h1>Uploading Stuff</h1>
+
+<form asp-controller="Home" asp-action="Index" method="post" enctype="multipart/form-data">
+
+  <div>
+    <input name="name" />
+  </div>
+  <div>
+    <input name="file" type="file" />
+  </div>
+  <button>Upload It</button>
+</form>
+
+@if (@Model != null)
+{
+<hr />
+        <h2>Document Details</h2>
+
+                <ul>
+                  <li>Name: @Model.Name</li>
+                  <li>Size: @Model.Size</li>
+                  <li>Type: @Model.Type</li>
+                  <li>URL: @Model.Url</li>
+                </ul>
+
+                        @if (Model.Url != null)
+                        {
+                <img src="@Model.Url" width="250" />
+}}
+
+
