@@ -19,5 +19,9 @@ Azure (and AWS) is a cloud provider that offers a storage medium where we can up
 
 ## Today's Outline
 
-<!-- To Be Completed By Instructor -->
+1. Warm-Up
+2. Share another sort?
+3. Client Q&A / Review
+4. Cloud Storage
+5. Uploading Images
 
