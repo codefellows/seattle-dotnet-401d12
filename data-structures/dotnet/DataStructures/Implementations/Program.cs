@@ -8,7 +8,8 @@ namespace DataStructures
     static void Main(string[] args)
     {
       // LinkedListFun();
-      StackFun();
+      //StackFun();
+      HashMapFun();
     }
 
     static void LinkedListFun()
@@ -47,6 +48,30 @@ namespace DataStructures
         Console.WriteLine(person.Value);
       }
 
+    }
+
+    static void HashMapFun()
+    {
+      HashMap ht = new HashMap(50);
+
+      ht.Set("John", "Dad");
+      ht.Set("Cathy", "Mom");
+      ht.Set("Zach", "Son");
+      ht.Set("Allie", "Daughter");
+      ht.Set("Rosie", "Dog");
+      ht.Set("Gerald", "Father In Law");
+      ht.Set("Linda", "Mother In Law");
+      ht.Set("Ameilia", "Student");
+      ht.Set("JP", "Student");
+      ht.Set("Alan", "Student");
+      ht.Set("Mike", "Student");
+      ht.Set("Jordan", "Student");
+      ht.Set("Scott", "Student");
+      ht.Set("David", "Student");
+      ht.Set("Matthew", "Student");
+      ht.Set("Krystian", "Expecting Mom!");
+
+      ht.Print();
     }
   }
 }
