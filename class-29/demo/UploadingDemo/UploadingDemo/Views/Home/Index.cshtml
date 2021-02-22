@@ -5,7 +5,10 @@
 <form asp-controller="Home" asp-action="Index" method="post" enctype="multipart/form-data">
 
   <div>
-    <input name="name" />
+    <input name="name" placeholder="Friendly File Name" />
+  </div>
+  <div>
+    <input name="uploadedBy" placeholder="Your Name" />
   </div>
   <div>
     <input name="file" type="file" />
@@ -27,7 +30,6 @@
 
                         @if (Model.Url != null)
                         {
-                <img src="@Model.Url" width="250" />
-}}
+                <img src="@Model.Url" width="250" />}}
 
 
