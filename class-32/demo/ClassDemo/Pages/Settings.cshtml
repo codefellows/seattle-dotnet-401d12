@@ -1,0 +1,21 @@
+﻿@page
+@model ClassDemo.Pages.SettingsModel
+@{
+}
+
+<h1>@Model.Username</h1>
+
+<form method="post">
+    <div>
+        <input asp-for="@Model.Username"/>
+    </div>
+
+    <div>
+        <label asp-for="@Model.Mode">Check for darkmode</label>
+        <input asp-for="@Model.Mode"/>
+    </div>
+
+    <div>
+        <input type="submit"/> 
+    </div>
+</form>
