@@ -1,0 +1,34 @@
+@page
+@model ProcessOrderDemo.Pages.IndexModel
+@{
+}
+
+<h1>Emailing 101</h1>
+
+<h2>Add a Player</h2>
+
+<form method="post">
+  <div>
+    <label asp-for="@Model.player.Name">Name: </label>
+    <input asp-for="@Model.player.Name" />
+  </div>
+  <div>
+    <label asp-for="@Model.player.Email">Email Address: </label>
+    <input asp-for="@Model.player.Email" />
+  </div>
+  <div>
+    <label asp-for="@Model.player.Position">Position: </label>
+    <input asp-for="@Model.player.Position" />
+  </div>
+  <div>
+    <label asp-for="@Model.player.Number">Number: </label>
+    <input asp-for="@Model.player.Number" />
+  </div>
+  <div>
+    <button>Save Player</button>
+  </div>
+</form>
+
+<div asp-validation-summary="All"></div>
+
+<h3>Mail Send Status: @Model.status</h3>
