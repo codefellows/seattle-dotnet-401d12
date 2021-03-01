@@ -8,8 +8,9 @@ namespace DataStructures
     static void Main(string[] args)
     {
       // LinkedListFun();
-      //StackFun();
-      HashMapFun();
+      // StackFun();
+      // HashMapFun();
+      GraphFun();
     }
 
     static void LinkedListFun()
@@ -72,6 +73,21 @@ namespace DataStructures
       ht.Set("Krystian", "Expecting Mom!");
 
       ht.Print();
+    }
+
+    static void GraphFun()
+    {
+      Graph<string> graph = new Graph<string>();
+
+      Vertex<string> a = graph.AddVertex("Washington");
+      Vertex<string> b = graph.AddVertex("Montana");
+      Vertex<string> c = graph.AddVertex("North Dakota");
+
+      graph.AddDirectedEdge(a, b);
+      graph.AddDirectedEdge(b, c);
+
+      graph.Print();
+
     }
   }
 }
