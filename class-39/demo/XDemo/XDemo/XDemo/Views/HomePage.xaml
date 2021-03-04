@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:XDemo.ViewModels"
+             xmlns:model="clr-namespace:XDemo.Models"
+             x:Class="XDemo.Views.HomePage">
+
+    <!-- this is like @model in MVC -->
+    <ContentPage.BindingContext>
+        <vm:HomeViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Entry Placeholder="Add some words" Text="{Binding Text}" Completed="OnEnterPressed"></Entry>
+            <!-- this is like @Model.thing -->
+            <Label Text="{Binding Confirmation}"/>
+
+            <ListView x:Name="ItemsView" ItemsSource="{Binding Items}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Text}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
